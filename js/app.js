@@ -7,7 +7,7 @@ const App = {
   currentCategory: 'all',
   searchQuery: '',
   currentPage: 1,
-  itemsPerPage: 12,
+  itemsPerPage: 20,
 
   init() {
     // Initialize modules
@@ -154,7 +154,7 @@ const App = {
       const isSelected = this.selectedFoods.some(f => f.id === food.id);
       const badgeClass = CATEGORY_BADGE_MAP[food.category] || 'badge';
       return `
-        <div class="food-card ${isSelected ? 'food-card--selected' : ''}"
+        <div class="food-card visible ${isSelected ? 'food-card--selected' : ''}"
              data-food-id="${food.id}"
              id="food-card-${food.id}">
           <span class="food-card__emoji">${food.emoji}</span>
@@ -178,11 +178,6 @@ const App = {
 
     // Render pagination
     this.renderPagination(totalItems);
-
-    // Animate cards in
-    requestAnimationFrame(() => {
-      AnimationController.animateFoodCards();
-    });
   },
 
   /* ========== PAGINATION ========== */
@@ -232,11 +227,6 @@ const App = {
         if (page && page !== this.currentPage) {
           this.currentPage = page;
           this.renderFoodGrid();
-          // Scroll back to top of menu
-          const menuHeader = document.querySelector('.menu__header');
-          if (menuHeader) {
-            menuHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
         }
       });
     });
