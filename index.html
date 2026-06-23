@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chọn món ăn cho Bé Yêu - Cute food picker with kawaii animations">
+  <meta name="theme-color" content="#FFB5C2">
+  <title>Hôm Nay Ăn Gì? - FoodLover</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍜</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- ========== FLOATING DECORATIONS ========== -->
+  <div class="floating-decorations" aria-hidden="true"></div>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="main-nav">
+    <ul class="nav__links">
+      <li><button class="nav__link nav__link--active" data-section="welcome">🏠 Home</button></li>
+      <li><button class="nav__link" data-section="menu">🍽️ Menu</button></li>
+      <li><button class="nav__link" data-section="random">🎰 Random</button></li>
+      <li><button class="nav__link" data-section="confirm">💌 Gửi</button></li>
+    </ul>
+  </nav>
+
+  <!-- ========== SECTION 1: WELCOME ========== -->
+  <section class="section section--welcome" id="welcome">
+    <div class="welcome container">
+      <div class="welcome__mascot">
+        <img src="assets/images/mascot.png"
+             alt="Cute kawaii cat chef mascot"
+             width="220"
+             height="220"
+             loading="eager">
+      </div>
+
+      <h1 class="welcome__title">
+        <span class="text-gradient" data-typewriter="Hôm nay ăn gì nè">Hôm nay ăn gì nè</span>
+        <br>
+        <span>Bé Yêu? 🍜</span>
+      </h1>
+
+      <p class="welcome__subtitle">
+        Chọn món ăn yêu thích hoặc để số phận quyết định nha~ ✨
+      </p>
+
+      <div class="welcome__cta-group">
+        <button class="btn btn--primary btn--lg welcome__cta" id="cta-browse">
+          🍽️ Chọn Món Nào!
+        </button>
+        <button class="btn btn--secondary btn--lg" id="cta-random">
+          🎲 Random Giùm Em!
+        </button>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <span class="animate-bounce" style="display:inline-block;">👇</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 2: FOOD MENU ========== -->
+  <section class="section section--menu" id="menu">
+    <div class="menu container">
+      <div class="menu__header">
+        <h2 class="menu__title text-gradient">🍽️ Chọn Món Yêu Thích</h2>
+        <p class="menu__subtitle">Tap vào món để chọn, tap lần nữa để bỏ chọn nha~</p>
+      </div>
+
+      <!-- Search -->
+      <div class="search-bar">
+        <span class="search-bar__icon">🔍</span>
+        <input type="text"
+               class="search-bar__input"
+               id="search-input"
+               placeholder="Tìm món ăn... (VD: phở, bún, cơm)"
+               autocomplete="off"
+               aria-label="Tìm kiếm món ăn">
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="categories" role="tablist" aria-label="Danh mục món ăn">
+        <button class="category-tab category-tab--active" data-category="all" role="tab">🍽️ Tất Cả</button>
+        <button class="category-tab" data-category="mon-nuoc" role="tab">🍜 Món Nước</button>
+        <button class="category-tab" data-category="com" role="tab">🍚 Cơm</button>
+        <button class="category-tab" data-category="banh" role="tab">🥖 Bánh</button>
+        <button class="category-tab" data-category="mon-kho" role="tab">🥢 Món Khô</button>
+        <button class="category-tab" data-category="an-vat" role="tab">🧁 Ăn Vặt</button>
+        <button class="category-tab" data-category="lau-nuong" role="tab">🍲 Lẩu & Nướng</button>
+        <button class="category-tab" data-category="khac" role="tab">🥗 Khác</button>
+      </div>
+
+      <!-- Food Grid -->
+      <div class="food-grid" id="food-grid" role="list" aria-label="Danh sách món ăn">
+        <!-- Food cards will be rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 3: RANDOM PICKER ========== -->
+  <section class="section section--random" id="random">
+    <div class="random-picker container">
+      <div class="random-picker__header">
+        <h2 class="random-picker__title text-gradient">🎰 Để Số Phận Quyết Định!</h2>
+        <p class="random-picker__subtitle">Không biết ăn gì? Quay thử xem nào~ 🎲</p>
+      </div>
+
+      <!-- Mode Toggle -->
+      <div class="mode-toggle">
+        <button class="mode-toggle__btn mode-toggle__btn--active" data-mode="slot">🎰 Slot Machine</button>
+        <button class="mode-toggle__btn" data-mode="dice">🎲 Xúc Xắc</button>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="random-filter">
+        <button class="random-filter__chip random-filter__chip--active" data-category="all">🍽️ Tất cả</button>
+        <button class="random-filter__chip" data-category="mon-nuoc">🍜 Món Nước</button>
+        <button class="random-filter__chip" data-category="com">🍚 Cơm</button>
+        <button class="random-filter__chip" data-category="banh">🥖 Bánh</button>
+        <button class="random-filter__chip" data-category="mon-kho">🥢 Món Khô</button>
+        <button class="random-filter__chip" data-category="an-vat">🧁 Ăn Vặt</button>
+        <button class="random-filter__chip" data-category="lau-nuong">🍲 Lẩu & Nướng</button>
+        <button class="random-filter__chip" data-category="khac">🥗 Khác</button>
+      </div>
+
+      <!-- Slot Machine -->
+      <div class="slot-machine">
+        <div class="slot-machine__viewport">
+          <div class="slot-machine__reel">
+            <!-- Reel items rendered by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Dice (hidden by default) -->
+      <div class="dice-container" style="display: none; justify-content: center; margin-bottom: 2rem;">
+        <div class="dice" style="width: 120px; height: 120px; font-size: 4rem; background: var(--white); border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); border: 3px solid var(--pink-primary); transition: transform 2s cubic-bezier(0.25, 0.1, 0.25, 1); cursor: pointer;">
+          🎲
+        </div>
+      </div>
+
+      <!-- Spin/Roll Button -->
+      <div class="slot-controls">
+        <button class="spin-btn" id="spin-btn" aria-label="Quay ngẫu nhiên">
+          Quay!
+        </button>
+      </div>
+
+      <!-- Result Display -->
+      <div class="result-display" id="result-display">
+        <div class="result-card glass">
+          <span class="result-card__emoji">🍜</span>
+          <h3 class="result-card__name">Phở Bò</h3>
+          <p class="result-card__desc">Nước dùng ngọt thanh</p>
+          <div class="result-card__actions">
+            <button class="btn btn--primary" id="choose-random-result">
+              💖 Chọn Món Này!
+            </button>
+            <button class="btn btn--secondary" id="reroll-btn">
+              🔄 Quay Lại!
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 4: CONFIRM & SEND ========== -->
+  <section class="section section--confirm" id="confirm">
+    <div class="confirm container">
+      <div class="confirm__header">
+        <h2 class="confirm__title text-gradient">💌 Gửi Cho Anh Nha!</h2>
+        <p class="confirm__subtitle">Xem lại món đã chọn rồi gửi cho anh biết nè~</p>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="confirm-empty">
+        <span class="empty-state__emoji">🤔</span>
+        <p class="empty-state__text">Chưa chọn món nào hết á~<br>Quay lại chọn món hoặc random nha!</p>
+        <button class="btn btn--secondary" onclick="AnimationController.scrollToSection('menu')">
+          🍽️ Đi Chọn Món
+        </button>
+      </div>
+
+      <!-- Summary Card -->
+      <div class="summary-card" style="display: none;">
+        <h3 style="margin-bottom: 1rem; font-size: 1.2rem;">📋 Món đã chọn:</h3>
+        <ul class="summary-card__selected-list" id="selected-list">
+          <!-- Selected items rendered by JS -->
+        </ul>
+      </div>
+
+      <!-- Note Input -->
+      <div class="note-input" style="display: none;">
+        <label class="note-input__label" for="note-textarea">
+          📝 Ghi chú cho anh (tùy chọn):
+        </label>
+        <textarea class="note-input__textarea"
+                  id="note-textarea"
+                  placeholder="VD: Muốn ăn nhiều rau nha~ / Ăn cay ít thôi / Mua thêm trà sữa giùm em 🧋"
+                  rows="3"></textarea>
+      </div>
+
+      <!-- Send Button -->
+      <button class="btn btn--primary btn--lg send-btn" id="send-btn" style="display: none;">
+        💌 Gửi Cho Anh!
+      </button>
+    </div>
+  </section>
+
+  <!-- ========== SELECTED FOODS BAR (Fixed Bottom) ========== -->
+  <div class="selected-bar" id="selected-bar">
+    <div class="selected-bar__info">
+      <span class="selected-bar__count">0 món đã chọn</span>
+      <div class="selected-bar__items">
+        <!-- Selected items rendered by JS -->
+      </div>
+    </div>
+    <div class="selected-bar__actions">
+      <button class="btn btn--ghost" id="clear-all" aria-label="Xóa tất cả">🗑️</button>
+      <button class="btn btn--primary" id="go-confirm">Xác Nhận →</button>
+    </div>
+  </div>
+
+  <!-- ========== SUCCESS OVERLAY ========== -->
+  <div class="success-overlay" id="success-overlay">
+    <div class="success-content">
+      <span class="success-content__emoji">🎉</span>
+      <h2 class="success-content__title">Đã gửi rồi nè!</h2>
+      <p class="success-content__subtitle">Anh sẽ xem ngay thôi~ Chờ anh chút nha 💕</p>
+      <button class="btn btn--primary btn--lg" id="success-close">
+        🏠 Về Trang Chủ
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== SCRIPTS ========== -->
+  <!-- GSAP (Animation Engine) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- App Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/foods.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/random.js"></script>
+  <script src="js/notify.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
