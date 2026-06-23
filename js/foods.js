@@ -26,6 +26,8 @@ const FOODS = [
   { id: 53, name: 'Bún Cá Cay', category: 'mon-nuoc', emoji: '🐟', desc: 'Đặc sản Hải Phòng, cá chiên giòn, nước dùng chua cay', color: '#FFE4E9' },
   { id: 54, name: 'Hủ Tiếu Gõ', category: 'mon-nuoc', emoji: '🍜', desc: 'Nước lèo thanh tao, thịt luộc, bò viên, hành phi', color: '#FFE4E9' },
   { id: 55, name: 'Miến Lươn', category: 'mon-nuoc', emoji: '🥢', desc: 'Lươn chiên giòn rụm, miến dong dai ngon', color: '#FFE4E9' },
+  { id: 91, name: 'Mì Udon', category: 'mon-nuoc', emoji: '🍜', desc: 'Mì Udon Nhật Bản dai mềm, nước dùng thanh ngọt', color: '#FFE4E9' },
+  { id: 92, name: 'Bún Mọc', category: 'mon-nuoc', emoji: '🍲', desc: 'Bún mọc sườn non, mộc nhĩ nấm hương thơm lừng', color: '#FFE4E9' },
 
   // ====== 🍚 CƠM & CƠM NHÀ ======
   { id: 9, name: 'Cơm Tấm', category: 'com', emoji: '🍚', desc: 'Sườn nướng mỡ hành, bì chả, trứng ốp la', color: '#FFF0E0' },
@@ -46,6 +48,8 @@ const FOODS = [
   { id: 63, name: 'Thịt Ba Chỉ Luộc', category: 'com', emoji: '🥩', desc: 'Thịt luộc chấm mắm tôm chua/nêm, kèm rau sống', color: '#FFF0E0' },
   { id: 64, name: 'Tôm Rim Thịt', category: 'com', emoji: '🦐', desc: 'Tôm rim ba chỉ cháy cạnh mặn ngọt cực tốn cơm', color: '#FFF0E0' },
   { id: 65, name: 'Cơm Hến', category: 'com', emoji: '🐚', desc: 'Đặc sản Huế, cơm nguội trộn hến xào, đậu phộng, tóp mỡ', color: '#FFF0E0' },
+  { id: 93, name: 'Gà Sốt Me', category: 'com', emoji: '🍗', desc: 'Gà chiên giòn rụm áo lớp sốt me chua ngọt đậm đà', color: '#FFF0E0' },
+  { id: 94, name: 'Cơm Nắm Onigiri (AEON)', category: 'com', emoji: '🍙', desc: 'Cơm nắm cá hồi/tôm mayonnaise siêu tiện lợi', color: '#FFF0E0' },
 
   // ====== 🥖 BÁNH ======
   { id: 17, name: 'Bánh Mì Thịt', category: 'banh', emoji: '🥖', desc: 'Bánh mì giòn, pa tê, thịt nguội, đồ chua', color: '#E8D5F5' },
@@ -58,6 +62,7 @@ const FOODS = [
   { id: 24, name: 'Bánh Ướt', category: 'banh', emoji: '🫔', desc: 'Bánh mỏng mềm, chả lụa, nước mắm chua ngọt', color: '#E8D5F5' },
   { id: 66, name: 'Bánh Gối', category: 'banh', emoji: '🥟', desc: 'Bánh chiên giòn rụm, nhân thịt, miến, mộc nhĩ', color: '#E8D5F5' },
   { id: 67, name: 'Bánh Tôm', category: 'banh', emoji: '🦐', desc: 'Bánh tôm Hồ Tây chiên giòn ăn kèm rau sống', color: '#E8D5F5' },
+  { id: 95, name: 'Bánh Crepe', category: 'banh', emoji: '🥞', desc: 'Crepe dâu tây, chuối chocolate ngập tràn kem tươi', color: '#E8D5F5' },
 
   // ====== 🥢 MÓN KHÔ ======
   { id: 25, name: 'Bún Chả Hà Nội', category: 'mon-kho', emoji: '🥢', desc: 'Thịt nướng than thơm, bún trắng, nước mắm chua ngọt', color: '#B8F0D8' },
@@ -85,6 +90,8 @@ const FOODS = [
   { id: 81, name: 'Cà Phê Muối', category: 'an-vat', emoji: '☕', desc: 'Cà phê đắng nhẹ phủ lớp kem muối béo ngậy', color: '#B8E4F0' },
   { id: 82, name: 'Cá Viên Chiên', category: 'an-vat', emoji: '🍢', desc: 'Cá viên, bò viên, xúc xích chiên ngập dầu', color: '#B8E4F0' },
   { id: 83, name: 'Bánh Chuối Chiên', category: 'an-vat', emoji: '🍌', desc: 'Bánh chuối chiên giòn rụm, ngọt lịm', color: '#B8E4F0' },
+  { id: 96, name: 'Nem Chua Rán', category: 'an-vat', emoji: '🌭', desc: 'Nem chua rán tẩm bột giòn, chấm tương ớt cay cay', color: '#B8E4F0' },
+  { id: 97, name: 'Cá Viên Chiên Nước Mắm', category: 'an-vat', emoji: '🥘', desc: 'Viên chiên xào mắm tỏi đậm đà nhức nách', color: '#B8E4F0' },
 
   // ====== 🍲 LẨU & NƯỚNG ======
   { id: 39, name: 'Lẩu Thái', category: 'lau-nuong', emoji: '🍲', desc: 'Chua cay Tom Yum, hải sản tươi, nấm', color: '#FFCBA4' },
@@ -117,6 +124,9 @@ const FOODS = [
   { id: 78, name: 'Canh Cua Mồng Tơi', category: 'khac', emoji: '🥣', desc: 'Mâm cơm Bắc chuẩn vị cùng cà pháo mắm tôm', color: '#FFE5A0' },
   { id: 89, name: 'Mì Ý Spaghetti', category: 'khac', emoji: '🍝', desc: 'Mì Ý sốt bò băm cà chua chua chua ngọt ngọt', color: '#FFE5A0' },
   { id: 90, name: 'Hàu Nướng Mỡ Hành', category: 'khac', emoji: '🦪', desc: 'Hàu tươi nướng mỡ hành đậu phộng béo ngậy', color: '#FFE5A0' },
+  { id: 98, name: 'Takoyaki (AEON)', category: 'khac', emoji: '🐙', desc: 'Bánh bạch tuộc nướng rắc cá bào múa lượn', color: '#FFE5A0' },
+  { id: 99, name: 'Gà Nướng Yakitori (AEON)', category: 'khac', emoji: '🍢', desc: 'Xiên gà nướng sốt Teriyaki đậm vị Nhật Bản', color: '#FFE5A0' },
+  { id: 100, name: 'Sushi Đóng Hộp (AEON)', category: 'khac', emoji: '🍣', desc: 'Hộp Sushi mix đủ vị tươi ngon siêu tiết kiệm', color: '#FFE5A0' },
 ];
 
 // Utility functions
