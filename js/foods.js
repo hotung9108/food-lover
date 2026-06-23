@@ -73,6 +73,7 @@ const FOODS = [
   { id: 30, name: 'Nem Nướng Nha Trang', category: 'mon-kho', emoji: '🍢', desc: 'Nem nướng thơm, bánh tráng cuốn rau sống', color: '#B8F0D8' },
   { id: 68, name: 'Bún Chả Giò', category: 'mon-kho', emoji: '🥢', desc: 'Bún tươi ăn kèm chả giò chiên giòn và nước mắm chua ngọt', color: '#B8F0D8' },
   { id: 69, name: 'Nem Rán / Chả Giò', category: 'mon-kho', emoji: '🌯', desc: 'Nem cuốn chiên giòn rụm nhân tôm thịt', color: '#B8F0D8' },
+  { id: 101, name: 'Mì Xì Dầu', category: 'mon-kho', emoji: '🍝', desc: 'Mì khô trộn xì dầu, mỡ hành, trứng lòng đào béo ngậy', color: '#B8F0D8' },
 
   // ====== 🧁 ĂN VẶT & ĐỒ UỐNG ======
   { id: 31, name: 'Trà Sữa', category: 'an-vat', emoji: '🧋', desc: 'Trà sữa trân châu, nhiều topping, ngọt ngào', color: '#B8E4F0' },
