@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Environment & Credentials (KHÔNG push lên GitHub!)
+.env
+js/config.js
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
