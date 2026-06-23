@@ -1,9 +1,8 @@
 # Dependencies
 node_modules/
 
-# Environment & Credentials (KHÔNG push lên GitHub!)
+# Environment & Credentials
 .env
-js/config.js
 
 # OS files
 .DS_Store
