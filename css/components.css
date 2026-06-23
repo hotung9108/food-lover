@@ -338,6 +338,58 @@
   transform: scale(1);
 }
 
+/* --- Pagination --- */
+.pagination {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-2xl);
+  flex-wrap: wrap;
+}
+
+.pagination__btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--white);
+  border: 2px solid var(--pink-light);
+  color: var(--text-medium);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pagination__btn:hover:not(:disabled) {
+  background: var(--pink-light);
+  border-color: var(--pink-primary);
+  color: var(--pink-dark);
+  transform: translateY(-2px);
+}
+
+.pagination__btn--active {
+  background: var(--pink-primary);
+  border-color: var(--pink-primary);
+  color: var(--white);
+  box-shadow: var(--shadow-pink);
+}
+
+.pagination__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--cream);
+}
+
+.pagination__dots {
+  color: var(--text-muted);
+  font-weight: 700;
+  padding: 0 var(--space-xs);
+}
+
 /* --- Selected Foods Bar --- */
 .selected-bar {
   position: fixed;

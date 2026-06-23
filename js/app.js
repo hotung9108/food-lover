@@ -6,6 +6,8 @@ const App = {
   selectedFoods: [],
   currentCategory: 'all',
   searchQuery: '',
+  currentPage: 1,
+  itemsPerPage: 12,
 
   init() {
     // Initialize modules
@@ -92,6 +94,7 @@ const App = {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
         this.searchQuery = e.target.value;
+        this.currentPage = 1; // Reset to page 1 on search
         this.renderFoodGrid();
       }, 200);
     });
@@ -106,6 +109,7 @@ const App = {
         tab.classList.add('category-tab--active');
         this.currentCategory = tab.dataset.category;
         this.searchQuery = '';
+        this.currentPage = 1; // Reset to page 1
         const searchInput = document.getElementById('search-input');
         if (searchInput) searchInput.value = '';
         this.renderFoodGrid();
@@ -136,10 +140,17 @@ const App = {
           <p class="no-results__text">Không tìm thấy món nào... Thử tìm kiếm khác nha!</p>
         </div>
       `;
+      this.renderPagination(0);
       return;
     }
 
-    grid.innerHTML = foods.map(food => {
+    // Pagination slice
+    const totalItems = foods.length;
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    const paginatedFoods = foods.slice(startIndex, endIndex);
+
+    grid.innerHTML = paginatedFoods.map(food => {
       const isSelected = this.selectedFoods.some(f => f.id === food.id);
       const badgeClass = CATEGORY_BADGE_MAP[food.category] || 'badge';
       return `
@@ -165,9 +176,69 @@ const App = {
     // Bind card clicks
     this.bindFoodCards();
 
+    // Render pagination
+    this.renderPagination(totalItems);
+
     // Animate cards in
     requestAnimationFrame(() => {
       AnimationController.animateFoodCards();
+    });
+  },
+
+  /* ========== PAGINATION ========== */
+  renderPagination(totalItems) {
+    const container = document.getElementById('pagination-controls');
+    if (!container) return;
+
+    const totalPages = Math.ceil(totalItems / this.itemsPerPage);
+    
+    if (totalPages <= 1) {
+      container.innerHTML = '';
+      return;
+    }
+
+    let html = '';
+    
+    // Prev button
+    html += `<button class="pagination__btn" data-page="${this.currentPage - 1}" ${this.currentPage === 1 ? 'disabled' : ''}>&laquo;</button>`;
+
+    // Page buttons
+    for (let i = 1; i <= totalPages; i++) {
+      // Simple logic to not show too many buttons if there are many pages
+      if (
+        i === 1 || 
+        i === totalPages || 
+        (i >= this.currentPage - 1 && i <= this.currentPage + 1)
+      ) {
+        html += `<button class="pagination__btn ${i === this.currentPage ? 'pagination__btn--active' : ''}" data-page="${i}">${i}</button>`;
+      } else if (
+        i === this.currentPage - 2 || 
+        i === this.currentPage + 2
+      ) {
+        html += `<span class="pagination__dots">...</span>`;
+      }
+    }
+
+    // Next button
+    html += `<button class="pagination__btn" data-page="${this.currentPage + 1}" ${this.currentPage === totalPages ? 'disabled' : ''}>&raquo;</button>`;
+
+    container.innerHTML = html;
+
+    // Bind events
+    const btns = container.querySelectorAll('.pagination__btn:not(:disabled)');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const page = parseInt(btn.dataset.page);
+        if (page && page !== this.currentPage) {
+          this.currentPage = page;
+          this.renderFoodGrid();
+          // Scroll back to top of menu
+          const menuHeader = document.querySelector('.menu__header');
+          if (menuHeader) {
+            menuHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
     });
   },
 

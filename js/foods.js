@@ -80,6 +80,11 @@ const FOODS = [
   { id: 38, name: 'Nước Mía', category: 'an-vat', emoji: '🥤', desc: 'Nước mía tắc mát lạnh, giải khát cực đã', color: '#B8E4F0' },
   { id: 70, name: 'Ốc Xào Bơ Tỏi', category: 'an-vat', emoji: '🧄', desc: 'Ốc hương xào bơ tỏi béo ngậy, mút mát chấm bánh mì', color: '#B8E4F0' },
   { id: 71, name: 'Cháo Trai', category: 'an-vat', emoji: '🥣', desc: 'Cháo trai sườn sụn, rắc tiêu và quẩy giòn', color: '#B8E4F0' },
+  { id: 79, name: 'Trà Mãng Cầu', category: 'an-vat', emoji: '🥤', desc: 'Trà mãng cầu chua ngọt thanh mát, giải nhiệt', color: '#B8E4F0' },
+  { id: 80, name: 'Trà Chanh Giã Tay', category: 'an-vat', emoji: '🍋', desc: 'Trà chanh giã tay thơm nức mùi chanh Quảng Đông', color: '#B8E4F0' },
+  { id: 81, name: 'Cà Phê Muối', category: 'an-vat', emoji: '☕', desc: 'Cà phê đắng nhẹ phủ lớp kem muối béo ngậy', color: '#B8E4F0' },
+  { id: 82, name: 'Cá Viên Chiên', category: 'an-vat', emoji: '🍢', desc: 'Cá viên, bò viên, xúc xích chiên ngập dầu', color: '#B8E4F0' },
+  { id: 83, name: 'Bánh Chuối Chiên', category: 'an-vat', emoji: '🍌', desc: 'Bánh chuối chiên giòn rụm, ngọt lịm', color: '#B8E4F0' },
 
   // ====== 🍲 LẨU & NƯỚNG ======
   { id: 39, name: 'Lẩu Thái', category: 'lau-nuong', emoji: '🍲', desc: 'Chua cay Tom Yum, hải sản tươi, nấm', color: '#FFCBA4' },
@@ -89,6 +94,11 @@ const FOODS = [
   { id: 43, name: 'Lẩu Hải Sản', category: 'lau-nuong', emoji: '🦐', desc: 'Tôm, mực, cá, nghêu - hải sản tươi sống', color: '#FFCBA4' },
   { id: 44, name: 'Nướng Giấy Bạc', category: 'lau-nuong', emoji: '🫕', desc: 'Hải sản nướng giấy bạc, bơ tỏi thơm lừng', color: '#FFCBA4' },
   { id: 72, name: 'Lẩu Ếch Măng Cay', category: 'lau-nuong', emoji: '🐸', desc: 'Ếch đồng dai ngon xào măng cay xè, nhúng lẩu', color: '#FFCBA4' },
+  { id: 84, name: 'Lẩu Riêu Cua Bắp Bò', category: 'lau-nuong', emoji: '🦀', desc: 'Lẩu riêu cua đồng thơm phức, nhúng bắp bò hoa', color: '#FFCBA4' },
+  { id: 85, name: 'Lẩu Nấm', category: 'lau-nuong', emoji: '🍄', desc: 'Lẩu nấm thanh đạm, nước dùng ngọt thanh', color: '#FFCBA4' },
+  { id: 86, name: 'Bò Nướng Tảng', category: 'lau-nuong', emoji: '🥩', desc: 'Thịt bò nướng tảng nguyên miếng, sốt tiêu đen', color: '#FFCBA4' },
+  { id: 87, name: 'Chân Gà Nướng', category: 'lau-nuong', emoji: '🍗', desc: 'Chân gà nướng sa tế giòn sật, nhậu cực bén', color: '#FFCBA4' },
+  { id: 88, name: 'Nướng Ngói', category: 'lau-nuong', emoji: '🥓', desc: 'Thịt nướng trên ngói đỏ hồng, mỡ xèo xèo', color: '#FFCBA4' },
 
   // ====== 🥗 KHÁC ======
   { id: 45, name: 'Bò Kho', category: 'khac', emoji: '🥘', desc: 'Bò kho mềm rục, nước sốt đậm đà, ăn với bánh mì', color: '#FFE5A0' },
@@ -105,6 +115,8 @@ const FOODS = [
   { id: 76, name: 'Gỏi Ngó Sen Tôm Thịt', category: 'khac', emoji: '🥗', desc: 'Gỏi tôm thịt ngó sen chua ngọt chống ngán', color: '#FFE5A0' },
   { id: 77, name: 'Mực Xào Cần Tỏi', category: 'khac', emoji: '🦑', desc: 'Mực tươi giòn sật xào cần tây, tỏi tây', color: '#FFE5A0' },
   { id: 78, name: 'Canh Cua Mồng Tơi', category: 'khac', emoji: '🥣', desc: 'Mâm cơm Bắc chuẩn vị cùng cà pháo mắm tôm', color: '#FFE5A0' },
+  { id: 89, name: 'Mì Ý Spaghetti', category: 'khac', emoji: '🍝', desc: 'Mì Ý sốt bò băm cà chua chua chua ngọt ngọt', color: '#FFE5A0' },
+  { id: 90, name: 'Hàu Nướng Mỡ Hành', category: 'khac', emoji: '🦪', desc: 'Hàu tươi nướng mỡ hành đậu phộng béo ngậy', color: '#FFE5A0' },
 ];
 
 // Utility functions
